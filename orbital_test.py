@@ -96,12 +96,13 @@ def execute_rounds(round_lineup, seed):
                 print(np.count_nonzero(round_orbits[idx]))
                 break #move to next row if only one player in current row
             elif round_orbits[int(idx)][int(position)] == 0: 
-                break # to next position if current is empty
+                print("No player in row %s, col %s." % (idx, position))
+                #break # to next position if current is empty
             else:
                 competitor1 = round_orbits[int(idx)][int(position)]
                 competitor2 = 0
                 while competitor2 == 0:
-                    competitor2 = next(round_orbits[row])
+                    competitor2 = next(round_orbits[int(idx)])
                 compete(competitor1, competitor2, round_records)
                 break
 
